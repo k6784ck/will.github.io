@@ -1,0 +1,824 @@
+<html>
+
+<head>
+    <meta charset="utf8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://makeweb.io/blocks/all.min.css" type="text/css" rel="stylesheet">
+    <link href="https://makeweb.io/css/pack/viewer.min.css" type="text/css" rel="stylesheet">
+    <style type="text/css">
+        .block-navbar {
+            width: 100% !important;
+            max-width: initial !important;
+            background: #444;
+            color: #fff;
+        }
+
+        .block-navbar nav.navbar {
+            background: none;
+            color: currentColor;
+        }
+
+        .block-navbar>.inner {
+            width: 100% !important;
+            max-width: initial !important;
+            margin: 0 !important;
+        }
+
+        .block-navbar nav.navbar li.nav-item a.nav-link {
+            color: currentColor;
+        }
+
+        .block-navbar nav.navbar .navbar-brand {
+            color: currentColor;
+        }
+    </style>
+    <style type="text/css">
+        /* .block-blank font-family: arial */
+    </style>
+    <style type="text/css">
+        .block-landing {
+            background: #444;
+            color: #fff;
+            width: 100%;
+            height: 100vh;
+            max-height: 640px;
+        }
+
+        .block-landing h1 {
+            color: #fff;
+        }
+
+        .block-landing>.inner {
+            width: 100% !important;
+            max-width: initial !important;
+            margin: 0 !important;
+            height: 100%;
+            display: table;
+        }
+
+        .block-landing>.inner>.inner {
+            margin: 0;
+            padding: 40px 20px;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            background-repeat: none;
+            background-position: center center;
+            background-size: cover;
+        }
+    </style>
+    <style type="text/css">
+        .block-blank {
+            font-family: arial;
+        }
+    </style>
+    <style type="text/css">
+        .block-iframe .container {
+            position: relative;
+            height: 0;
+            padding-bottom: 56.21%;
+        }
+
+        .block-iframe .container iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #eee;
+            left: 0;
+        }
+
+        .page-viewer .block-iframe iframe {
+            background: none;
+        }
+    </style>
+    <style type="text/css">
+        .block-slides {
+            padding: 0;
+            margin: 0;
+        }
+
+        .block-slides>.inner {
+            padding: 0;
+            margin: 0 !important;
+            width: 100% !important;
+            max-width: initial !important;
+        }
+
+        .block-slides .slides {
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .block-slides .slides>.fa {
+            position: absolute;
+            z-index: 10;
+            cursor: pointer;
+            top: 50%;
+            transform: translate(0, -50%);
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .block-slides .slides>.fa-chevron-right {
+            right: 10px;
+        }
+
+        .block-slides .slides>.fa-chevron-left {
+            left: 10px;
+        }
+
+        .block-slides .slide {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: absolute;
+            display: table;
+            left: 0;
+            top: 0;
+            z-index: 0;
+            opacity: 0;
+        }
+
+        .block-slides .slide>.inner {
+            display: table-cell;
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+    <style type="text/css"></style>
+    <style type="text/css">
+        .block-flip-card .flip-card {
+            position: relative;
+            perspective: 1000px;
+            transition: height;
+        }
+
+        .block-flip-card .flip-card .question,
+        .block-flip-card .flip-card .answer {
+            transform-origin: 50% 50%;
+            position: static;
+            top: 0;
+            border: 1px solid #ccc;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 5px;
+            border-radius: 3px;
+        }
+
+        .page-viewer .block-flip-card .flip-card .answer {
+            opacity: 0;
+            display: none;
+        }
+
+        .page-viewer .block-flip-card .flip-card.chosen .question {
+            animation: flip-card-out 0.5s 1 forwards cubic-bezier(0.3, 0, 0.7, 1);
+            opacity: 0;
+            position: absolute;
+        }
+
+        .page-viewer .block-flip-card .flip-card.chosen .answer {
+            animation: flip-card-in 0.5s 1 forwards cubic-bezier(0.3, 0, 0.7, 1);
+            opacity: 1;
+            display: block;
+        }
+
+        @-moz-keyframes flip-card-in {
+            0% {
+                transform: rotateY(-180deg);
+                opacity: 0;
+            }
+
+            49% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes flip-card-in {
+            0% {
+                transform: rotateY(-180deg);
+                opacity: 0;
+            }
+
+            49% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        @-o-keyframes flip-card-in {
+            0% {
+                transform: rotateY(-180deg);
+                opacity: 0;
+            }
+
+            49% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes flip-card-in {
+            0% {
+                transform: rotateY(-180deg);
+                opacity: 0;
+            }
+
+            49% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes flip-card-out {
+            0% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+
+            49% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                transform: rotateY(180deg);
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes flip-card-out {
+            0% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+
+            49% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                transform: rotateY(180deg);
+                opacity: 0;
+            }
+        }
+
+        @-o-keyframes flip-card-out {
+            0% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+
+            49% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                transform: rotateY(180deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes flip-card-out {
+            0% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+
+            49% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                transform: rotateY(180deg);
+                opacity: 0;
+            }
+        }
+    </style>
+    <style type="text/css">
+        .block-speaker .row {
+            justify-content: center;
+        }
+
+        .block-speaker .speaker {
+            width: 80%;
+            min-width: 130px;
+            margin: auto;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .block-speaker .speaker .inner {
+            height: 0;
+            padding-bottom: 100%;
+        }
+
+        .block-speaker .name,
+        .block-speaker .title {
+            text-align: center;
+        }
+
+        .block-speaker .name {
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+    </style>
+    <style type="text/css">
+        .page-viewer .block-card-score .card-score {
+            display: none;
+        }
+
+        .page-viewer .block-card-score .card-score.matched {
+            display: block;
+        }
+    </style>
+    <style type="text/css">
+        .block-timeline .list .item {
+            border-left: 1px solid #ccc;
+            border-top: 1px solid transparent;
+            padding: 0 0 30px 20px;
+            position: relative;
+        }
+
+        .block-timeline .list .item .title {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: -10px 0 5px 0;
+        }
+
+        .block-timeline .list .item:after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: -5px;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            background: #ccc;
+        }
+
+        .block-timeline .list .item:last-child {
+            border-left: 0px solid transparent;
+        }
+    </style>
+    <style type="text/css">
+        .block-iframe .container {
+            position: relative;
+            height: 0;
+            padding-bottom: 56.21%;
+        }
+
+        .block-iframe .container iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #eee;
+            left: 0;
+        }
+
+        .page-viewer .block-iframe iframe {
+            background: none;
+        }
+    </style>
+    <style type="text/css">
+        [image=image] {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            max-width: 100%;
+        }
+
+        [image=image]:div {
+            display: none;
+        }
+
+        [image=image][preserve-aspect-ratio=true] {
+            height: auto !important;
+        }
+
+        [image=image][preserve-aspect-ratio=true]:div {
+            display: block;
+            height: 0;
+        }
+
+        .root-block {
+            font-family: Raleway, PingFangTC-Regular, Heiti TC, Microsoft JhengHei, Helvetica, Arial, sans-serif;
+            color: #555;
+        }
+
+        .root-block iframe {
+            border: 0;
+        }
+
+        .root-block .btn a {
+            color: #fff;
+        }
+
+        .root-block b {
+            font-weight: 600;
+        }
+
+        .root-block h1,
+        .root-block h2,
+        .root-block h3,
+        .root-block h4,
+        .root-block h5,
+        .root-block h6 {
+            font-weight: bold;
+        }
+
+        .root-block h1 {
+            font-size: 3em;
+        }
+
+        .root-block h2 {
+            font-size: 2.25em;
+        }
+
+        .root-block h3 {
+            font-size: 1.75em;
+        }
+
+        .root-block h4 {
+            font-size: 1.5em;
+        }
+
+        .root-block h5 {
+            font-size: 1.25em;
+        }
+
+        .root-block h6 {
+            font-size: 1em;
+        }
+
+        .block-item {
+            position: relative;
+            border-top: 0.1px solid transparent;
+            border-bottom: 0.1px solid transparent;
+        }
+
+        .block-item>.inner {
+            margin: 20px 40px;
+        }
+
+        .block-item:first-child>.inner {
+            margin-top: 40px;
+        }
+
+        .block-item:last-child>.inner {
+            margin-bottom: 40px;
+        }
+
+        #makeweb {
+            position: fixed;
+            bottom: 0;
+            right: 20px;
+            font-size: 12px;
+            color: #ccc;
+            padding: 10px;
+            background: #222;
+            border-radius: 5px 5px 0 0;
+            box-shadow: 0 9px 4px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        #makeweb .inner {
+            margin-bottom: -10px;
+        }
+
+        #makeweb img {
+            height: 11px;
+            vertical-align: 0;
+        }
+
+        #makeweb.short {
+            padding: 6px 10px;
+        }
+
+        #edit-this-page {
+            position: fixed;
+            right: 20px;
+            bottom: 40px;
+            color: #444;
+            font-size: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 5px;
+            border-radius: 5px;
+            width: 50px;
+            height: 56px;
+            text-align: center;
+            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        #edit-this-page i.fa {
+            font-size: 28px;
+            margin-left: 8px;
+        }
+
+        i.fa-icon {
+            font: normal normal normal 14px/1 FontAwesome;
+        }
+
+        *[resizable='true'],
+        *[resizable='resizable'] {
+            padding: 20px;
+            max-width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .block-item>.inner {
+                margin: 20px 10px;
+            }
+
+            .block-item {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+        }
+
+        hr {
+            border-top: 1px solid #c8c8c8;
+        }
+    </style>
+    <style type="text/css"></style>
+</head>
+
+<body>
+    <div style="background-color: rgb(148, 131, 131);" base-block="navbar" id="block-id-d64bfe9dcfed88"
+        eid="d64bfe9dcfed88" class="block-item block-navbar">
+        <div data-placeholder="" data-medium-editor-editor-index="1" aria-multiline="true" role="textbox"
+            data-medium-editor-element="true" spellcheck="false" class="inner medium-editor-element">
+            <nav class="navbar navbar-expand-lg"><a class="navbar-brand" href="#">Navbar</a><button
+                    class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse"
+                    type="button"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto" repeat-host="repeat-host">
+                        <li class="nav-item" repeat-item="repeat-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item" repeat-item="repeat-item"><a class="nav-link" href="#">About</a></li>
+                        <li class="nav-item" repeat-item="repeat-item"><a class="nav-link" href="#">Product</a></li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto" repeat-host="repeat-host">
+                        <li class="nav-item" repeat-item="repeat-item"><a class="nav-link" href="#">Login</a></li>
+                        <li class="nav-item" repeat-item="repeat-item"><a class="nav-link" href="#">Signup</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div style="background-color: rgb(148, 131, 131);" base-block="landing" id="block-id-b46548356d6e1"
+        eid="b46548356d6e1" class="block-item block-landing">
+        <div data-placeholder="" data-medium-editor-editor-index="3" aria-multiline="true" role="textbox"
+            data-medium-editor-element="true" spellcheck="false" class="inner medium-editor-element">
+            <div class="inner"
+                style="background-image: url(&quot;https://ucarecdn.com/b490832a-191f-49b2-9b1c-37ce0859206c/&quot;);"
+                image="bk">
+                <div class="text-center"><br>
+                    <h1>境外生了沒？</h1>
+                    <hr>
+                    <p>a little more details about this project, better with one to two sentence.</p><br>
+                    <div repeat-host="repeat-host"><a class="btn btn-lg btn-danger mr-1 ml-1" href="#"
+                            repeat-item="repeat-item">Get Started Now</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="background-image: url(&quot;https://makeweb.io/page/3SWy1T025p05kd0AoC0rMb-l/https&quot;); background-color: rgb(11, 11, 11); color: rgb(238, 238, 238);"
+        base-block="blank" id="block-id-dc2450e2d21c78" eid="dc2450e2d21c78" class="block-item block-blank">
+        <div data-placeholder="" data-medium-editor-editor-index="2" aria-multiline="true" role="textbox"
+            data-medium-editor-element="true" spellcheck="false" class="inner medium-editor-element">
+            <div class="block-blank">
+                <h3 eid="4ff75d292ce008">境外生的隱憂</h3>
+                <p>是誰來台灣？誰出國去讀書？新南向政策？</p>
+            </div>
+        </div>
+    </div>
+    <div base-block="explain" id="block-id-0ff6582f93f4" eid="0ff6582f93f4" class="block-item block-explain">
+        <div data-placeholder="" data-medium-editor-editor-index="4" aria-multiline="true" role="textbox"
+            data-medium-editor-element="true" spellcheck="false" class="inner medium-editor-element"><br>
+            <h2 style="text-align:center">為何這樣?</h2><br>
+            <p>MakeWeb is a collaborative web editing service. In MakeWeb, layouts are provided as "blocks" that can be
+                composed together by dragging and dropping, so you don't have to worry about coding and layout tweaking
+                but fully focus on the content you are creating.</p>
+            <p>While making web are made easy, we also help you to more easily collaborate with others with our realtime
+                collaborating editing interface. Share your link with friends and colleagues, and start coworking now!
+            </p>
+        </div>
+    </div>
+    <div base-block="iframe" id="block-id-87643734c7fb8" eid="87643734c7fb8" class="block-item block-iframe">
+        <div class="inner">
+            <div class="container" edit-text="src"><iframe auto-content="auto-content"
+                    edit-text-placeholder="enter ebmedded URL" edit-text="src"
+                    src="https://plotdb.io/v/chart/22041?fbclid=IwAR1qXMcWmIPS4Q_XK0gpSjDEqRIDFCO3AeOH-Aso1NIZ-Bm-SvKVGSY1bKo"></iframe>
+            </div>
+        </div>
+    </div>
+    <div id="block-id-bb983c6153a35" eid="bb983c6153a35" class="block-item block-timeline" base-block="timeline">
+        <div data-placeholder="" data-medium-editor-editor-index="10" aria-multiline="true" role="textbox"
+            data-medium-editor-element="true" spellcheck="false" class="inner medium-editor-element">
+            <h3 class="mb-4">Timeline</h3>
+            <div class="list" repeat-host="repeat-host">
+                <div class="item" repeat-item="repeat-item">
+                    <div class="title">President of United States <small>2009 - 2017</small></div>
+                    <div class="desc">the 44th President took place on January 20, 2009. In his first few days in
+                        office, Obama issued executive orders and presidential memoranda directing the U.S. military to
+                        develop plans to withdraw troops from Iraq.</div>
+                </div>
+                <div class="item" repeat-item="repeat-item">
+                    <div class="title">U.S. Senator from Illinois <small>2005 - 2008</small></div>
+                    <div class="desc">Obama was sworn in as a senator on January 3, 2005,[136] becoming the only Senate
+                        member of the Congressional Black Caucus.[137] CQ Weekly characterized him as a "loyal Democrat"
+                        based on analysis of all Senate votes from 2005 to 2007.</div>
+                </div>
+                <div class="item" repeat-item="repeat-item">
+                    <div class="title">Illinois State Senator <small>1997 - 2004</small></div>
+                    <div class="desc">Obama was elected to the Illinois Senate in 1996, succeeding Democratic State
+                        Senator Alice Palmer from Illinois's 13th District, which, at that time, spanned Chicago South
+                        Side neighborhoods from Hyde Park–Kenwood south to South Shore and west to Chicago Lawn.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="block-id-be8be18623bc6" eid="be8be18623bc6" class="block-item block-iframe" base-block="iframe">
+        <div class="inner">
+            <div class="container" edit-text="src"><iframe auto-content="auto-content"
+                    edit-text-placeholder="enter ebmedded URL" edit-text="src"
+                    src="https://plotdb.io/v/chart/21669?fbclid=IwAR1fc4LkmD71-lPSBykLx7IMPwqGVnRlF1DNVX_4tDw2oS7BBw5o90wQaBo"></iframe>
+            </div>
+        </div>
+    </div>
+    <div base-block="slides" id="block-id-90628a8ceac51" eid="90628a8ceac51" class="block-item block-slides">
+        <div data-placeholder="" data-medium-editor-editor-index="5" aria-multiline="true" role="textbox"
+            data-medium-editor-element="true" spellcheck="false" class="inner medium-editor-element">
+            <div class="slides" repeat-host="repeat-host"><i class="fa fa-chevron-right"></i><i
+                    class="fa fa-chevron-left"></i>
+                <div style="z-index: 9; opacity: 1; transition: none; transform: translate(0px, 0px); background-image: url(&quot;https://ucarecdn.com/95d2b449-8d13-4372-b706-85e3a1212d03/&quot;);"
+                    class="slide" image="bk" repeat-item="repeat-item">
+                    <div class="inner">
+                        <h1>Slide</h1>
+                        <p>a sample slide page</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div base-block="flip-card" id="block-id-b1ef119f07c7e" eid="b1ef119f07c7e" class="block-item block-flip-card">
+        <div data-placeholder="" data-medium-editor-editor-index="7" aria-multiline="true" role="textbox"
+            data-medium-editor-element="true" spellcheck="false" class="inner medium-editor-element">
+            <p>So, there are several choices that you can make. Which one will you choose?</p>
+            <div class="row" repeat-host="repeat-host">
+                <div card-score="-999" class="col flip-card" edit-text-placeholder="enter card score"
+                    edit-text="card-score" repeat-item="repeat-item">
+                    <div class="question">
+                        <h4 eid="2e79e74708d6d">越南</h4>
+                        <p>You won't be regret of choosing me.</p>
+                    </div>
+                    <div class="answer">
+                        <h3>錯了</h3>
+                        <p>Personally this choice is my favorite. I always choose this one when I got a lot of choices
+                            to make.</p>
+                    </div>
+                </div>
+                <div card-score="999" class="col flip-card" edit-text-placeholder="enter card score"
+                    edit-text="card-score" repeat-item="repeat-item">
+                    <div class="question">
+                        <h4>馬來西亞</h4>
+                        <p>You won't be regret of choosing me.</p>
+                    </div>
+                    <div class="answer">
+                        <h3>對了，馬來西亞每年來ＸＸＸ人</h3>
+                        <p>Personally this choice is my favorite. I always choose this one when I got a lot of choices
+                            to make.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div base-block="cta" id="block-id-590a3545b5903" eid="590a3545b5903" class="block-item block-cta">
+        <div data-placeholder="" data-medium-editor-editor-index="6" aria-multiline="true" role="textbox"
+            data-medium-editor-element="true" spellcheck="false" class="inner medium-editor-element">
+            <div class="text-center" repeat-host="repeat-host"><a class="btn btn-primary mr-2 btn-lg"
+                    repeat-item="repeat-item" href="#">Action 1</a><a class="btn btn-primary mr-2 btn-lg"
+                    repeat-item="repeat-item" href="#">Action 2</a><a class="btn btn-primary mr-2 btn-lg"
+                    repeat-item="repeat-item" href="#">Action 3</a></div>
+        </div>
+    </div>
+    <div base-block="card-score" id="block-id-d86d41dfbf4588" eid="d86d41dfbf4588" class="block-item block-card-score">
+        <div data-placeholder="" data-medium-editor-editor-index="9" aria-multiline="true" role="textbox"
+            data-medium-editor-element="true" spellcheck="false" class="inner medium-editor-element">
+            <p>So this is your final score, check it out!</p>
+            <div class="row" repeat-host="repeat-host">
+                <div class="col card-score" edit-text-placeholder="enter card score" edit-text="card-score-sep"
+                    repeat-item="repeat-item">
+                    <div class="review">
+                        <h4>You got a nice score!</h4>
+                        <p>This is your final score.</p>
+                    </div>
+                </div>
+                <div class="col card-score" edit-text-placeholder="enter card score" edit-text="card-score-sep"
+                    repeat-item="repeat-item">
+                    <div class="review">
+                        <h4>You got a nice score!</h4>
+                        <p>This is your final score.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div base-block="speaker" id="block-id-762ffab88dab7" eid="762ffab88dab7" class="block-item block-speaker">
+        <div data-placeholder="" data-medium-editor-editor-index="8" aria-multiline="true" role="textbox"
+            data-medium-editor-element="true" spellcheck="false" class="inner medium-editor-element">
+            <div class="row ml-0 mr-0" repeat-host="repeat-host">
+                <div class="col-sm-4" repeat-item="repeat-item">
+                    <div class="speaker"
+                        style="background-image: url(&quot;https://ucarecdn.com/77c7c0ef-865d-4054-a253-5862bdddb75b/&quot;);"
+                        image="image">
+                        <div class="inner"></div>
+                    </div>
+                    <div class="name mt-2">Shivam Verweij</div>
+                    <div class="title mb-2">Journalist</div>
+                    <div class="desc">
+                        <p>Lorem ipsum dolor sit amet, consecte tur. Aenean mollis, Photo by Quinten from Netherlands.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-4" repeat-item="repeat-item">
+                    <div class="speaker" style="background-image:url(/assets/img/sample/p2.jpg)" image="image">
+                        <div class="inner"></div>
+                    </div>
+                    <div class="name mt-2">Luong Thắng Phấn</div>
+                    <div class="title mb-2">Cofounder</div>
+                    <div class="desc">
+                        <p class="">Lorem ipsum dolor sit amet, Aenean mollis urna eu. dolor sit anba, Photo by Bùi
+                            Thanh Tâm.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4" repeat-item="repeat-item">
+                    <div class="speaker" style="background-image:url(/assets/img/sample/p3.jpg)" image="image">
+                        <div class="inner"></div>
+                    </div>
+                    <div class="name mt-2">Gabriel Mistry</div>
+                    <div class="title mb-2">Designer</div>
+                    <div class="desc">
+                        <p>Dolor consecte Aenean mollis urna eu. ipsum dolor aet, Photo by Jenn Lopez from Los Angeles.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
